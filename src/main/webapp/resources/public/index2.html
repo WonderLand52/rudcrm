@@ -1,0 +1,131 @@
+<!DOCTYPE html >
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Initial page</title>
+
+    <link href="/resources/public/bower_components/bootstrap-css/css/bootstrap.min.css" rel="stylesheet" media="screen">
+    <link href="/resources/public/bower_components/bootstrap-css/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+</head>
+<body>
+    <div class="container">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#">Home</a>
+                </div>
+
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a href="#">Order</a></li>
+                        <li><a href="#">Prices</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="login.html">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="jumbotron row" id="main-inner">
+            <div class="banner-left col-md-5">
+                <div class="main-slogan">
+                    No Better Way to Get Your Schoolwork Done!
+                </div>
+            </div>
+            <div class="banner-right col-md-6">
+                <div class="jumbotron" id="calculate-price">
+                    <div class="container">
+                        <h3>Calculate the price</h3>
+
+                        <!--Select type of paper-->
+                        <form>
+                            <div class="form-group">
+                                <label for="type-of-paper">Type of paper:</label>
+                                <select class="form-control" id="type-of-paper"
+                                        ng-options="type.value group by type.group for type in paperTypes" ng-model="defaultType" ng-change="calculatePrice()">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="academic-level">Academic level:</label>
+                                <select class="form-control" id="academic-level" ng-model="levelSelect" ng-change="calculatePrice()">
+                                    <option value="" selected>Select Academic level</option>
+                                    <option value="Undergraduate">Undergraduate</option>
+                                    <option value="Bachelor">Bachelor</option>
+                                    <option value="Professional">Professional</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="deadline">Deadline:</label>
+                                <select class="form-control" id="deadline" ng-model="deadlineSelect" ng-change="calculatePrice()">
+                                    <option value="" selected>Select Deadline</option>
+                                    <option value="3">3 hours</option>
+                                    <option value="6">6 hours</option>
+                                    <option value="12">12 hours</option>
+                                    <option value="48">2 days</option>
+                                    <option value="72">3 days</option>
+                                </select>
+                            </div>
+                            <div class="form-group" ng-keydown="calculatePrice()" ng-keyup="calculatePrice()">
+                                <label for="pages-number">Number of pages:</label>
+                                <input ng-model="pagesNumber" type="number" maxlength="3" class="form-control" id="pages-number">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="center_price_row col-md-6">
+                        Total price for this work:
+                    </div>
+                    <div class="center_price_div col-md-6">
+                        $
+                        <span class="calc_price ng-cloak" ng-model="calculatedPrice" ng-cloak>{{calculatedPrice}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        #main-inner {
+            position: relative;
+            margin-top: 40px;
+            padding-top: 0;
+            height: 450px;
+            background: url(../img/bg-highlight1.jpg) no-repeat;
+
+        }
+        .main-slogan {
+            float: left;
+            font: normal 45px Franklin-med, Helvetica, Arial, sans-serif;
+            font-size: 35px;
+            margin: 0 0 20px 0;
+            line-height: 65px;
+            color: #FFF;
+            padding-top: 30px;
+        }
+        .banner-right {
+            float: right;
+        }
+        #calculate-price {
+            width: 420px;
+            padding: 20px 30px;
+            margin-top: -20px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5); /* Параметры тени */
+        }
+        .center_price_row {
+            padding-top: 10px;
+            font: bold 12px Arial;
+            color: #000000;
+            text-shadow: 0px 1px 1px rgba(255,255,255,0.6);
+        }
+        .center_price_div {
+            font: bold 32px Arial;
+            color: #ec4a0a;
+            text-shadow: 0 1px 1px rgba(255,255,255,0.6);
+        }
+
+        .ng-cloak {
+            display: none !important;
+        }
+    </style>
+</body>
+</html>
