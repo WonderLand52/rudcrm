@@ -6,6 +6,7 @@ require.config({
         angularAnimate: '../../../bower_components/angular-animate/angular-animate',
         csrfInterceptor: '../../../bower_components/spring-security-csrf-token-interceptor/dist/spring-security-csrf-token-interceptor.min',
         common: '../common',
+        indexApp: '../index-app',
         makeOrderApp: 'order-app'
     },
     shim: {
@@ -24,17 +25,17 @@ require.config({
         angularAnimate: {
             deps: ['angular']
         },
-        calculatePriceApp: {
-            deps: ['angular', 'partialsManager']
-        },
         bootstrap: {
             deps: ['jQuery']
         },
         common: {
             deps: ['angular', 'csrfInterceptor', 'angularMessages', 'angularAnimate']
         },
+        indexApp: {
+            deps: ['angular', 'partialsManager']
+        },
         makeOrderApp: {
-            deps: ['common', 'csrfInterceptor', 'angularAnimate']
+            deps: ['common', 'indexApp', 'csrfInterceptor', 'angularAnimate']
         }
     }
 });

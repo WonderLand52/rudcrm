@@ -1,4 +1,4 @@
-var orderApp = angular.module('orderApp', ['common', 'spring-security-csrf-token-interceptor']);
+var orderApp = angular.module('orderApp', ['common', 'indexApp', 'spring-security-csrf-token-interceptor']);
 
 orderApp.controller('OrderProcessingCtrl', ['$scope', function ($scope) {
 
@@ -15,6 +15,7 @@ orderApp.controller('OrderProcessingCtrl', ['$scope', function ($scope) {
     };
 
     $scope.isTabSelected = function (tabNumber) {
+        console.log('tabNumber: ' + tabNumber);
         return $scope.tab.activeTab === tabNumber;
     };
 
@@ -30,7 +31,9 @@ orderApp.controller('RegisterCtrl', ['$scope', '$http', function ($scope, $http)
         return $scope.form.firstname.$valid &&
             $scope.form.secondname.$valid &&
             $scope.form.email.$valid &&
-            $scope.form.retypeemail.$valid;
+            $scope.form.retypeemail.$valid &&
+            $scope.form.password.$valid &&
+            $scope.form.retypepassword.$valid;
     };
 
     $scope.$on('processUserDetailsTabClicked', function(event, tabNumber) {
@@ -41,9 +44,10 @@ orderApp.controller('RegisterCtrl', ['$scope', '$http', function ($scope, $http)
         console.log('tabNumber: ' + tabNumber);
         $scope.tab.proceedClicked = true;
 
-        if(isValidRegisterForm()) {
+        if(true/*isValidRegisterForm()*/) {
             console.log('form is valid!');
-            createUser(tabNumber);
+            //createUser(tabNumber);
+            $scope.selectTab(tabNumber);
         }
     };
 

@@ -20,7 +20,7 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
         <![endif]-->
       </head>
-      <body id="top" ng-controller="CalculatePriceCtrl">
+      <body id="top">
         <section class="hero" id="hero">
           <tt-nav-bar></tt-nav-bar>
 			<div class="container">
@@ -33,7 +33,7 @@
                 <div class="banner-right col-md-6">
                   <div class="animated fadeInUp delay-1s">
 				  <div class="jumbotron col-md-offset-1" id="calculate-price">
-                    <div class="container">
+                    <div class="container" ng-controller="CalculatePriceCtrl">
                         <h2><strong>Calculate the price</strong></h2>
 
                         <!--Select type of paper-->
@@ -41,7 +41,7 @@
                             <div class="form-group">
                                 <label for="type-of-paper">Type of paper:</label>
                                 <select class="form-control" id="type-of-paper"
-                                        ng-options="type.value group by type.group for type in paperTypes" ng-model="defaultType" ng-change="calculatePrice()">
+                                        ng-options="type.value group by type.group for type in paperTypes" ng-model="paperTypes[0]" ng-change="calculatePrice()">
                                 </select>
                             </div>
                             <div class="form-group">

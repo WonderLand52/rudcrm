@@ -29,7 +29,8 @@ angular.module( 'indexApp', ['partialsManager'])
             }
         ];
 
-        $scope.defaultType = $scope.paperTypes[0];
+        $scope.subjects = ["Select...", "Accounting", "Anropology"];
+
         $scope.calculatePrice = function() {
             if($scope.pagesNumber == undefined) {
                 $scope.calculatedPrice = '';

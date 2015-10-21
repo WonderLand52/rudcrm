@@ -1,23 +1,16 @@
 package com.rudenkoinc.crm.app.service;
 
 import com.rudenkoinc.crm.app.dao.UserRepository;
-import com.rudenkoinc.crm.app.model.Order;
 import com.rudenkoinc.crm.app.model.User;
-//import org.apache.log4j.Logger;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
 import java.util.regex.Pattern;
 
 import static com.rudenkoinc.crm.app.service.ValidationUtils.*;
-
-/**
- * @author Illia Rudenko
- */
 
 @Service
 public class UserService {
@@ -43,15 +36,8 @@ public class UserService {
     @Transactional
     public void createUser(String firstName, String secondName, String email, String password) {
 
-        if(true) {
-            throw new IllegalArgumentException("hello exception");
-        }
-        System.out.println(">>>>> email: " + email);
-        System.out.println(">>>>> firstName: " + firstName);
-
         assertNotBlank(firstName, "FirstName cannot be empty.");
         assertNotBlank(secondName, "SecondName cannot be empty.");
-        assertMinimumLength(firstName, 6, "Username must have at least 6 characters.");
         assertNotBlank(email, "Email cannot be empty.");
         assertMatches(email, EMAIL_REGEX, "Invalid email.");
         assertNotBlank(password, "Password cannot be empty.");

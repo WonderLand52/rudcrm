@@ -26,9 +26,9 @@ angular.module('common', ['ngMessages', 'ngAnimate'])
         $scope.isValidForm = function () {
             console.log('isValidForm');
             $scope.tab.validForm = $scope.form.firstname.$valid &&
-                $scope.form.secondname.$valid &&
-                $scope.form.email.$valid &&
-                $scope.form.retypeemail.$valid;
+            $scope.form.secondname.$valid &&
+            $scope.form.email.$valid &&
+            $scope.form.retypeemail.$valid;
         };
 
         $scope.preparePostData = function () {
@@ -52,16 +52,16 @@ angular.module('common', ['ngMessages', 'ngAnimate'])
                     "X-Login-Ajax-call": 'true'
                 }
             })
-            .then(function(response) {
-                if (response.data == 'ok') {
-                    console.log('Login is success');
-                    window.location.replace('/resources/personal_area.html');
-                }
-                else {
-                    $scope.vm.errorMessages = [];
-                    $scope.vm.errorMessages.push({description: 'Access denied'});
-                }
-            });
+                .then(function (response) {
+                    if (response.data == 'ok') {
+                        console.log('Login is success');
+                        window.location.replace('/resources/personal_area.html');
+                    }
+                    else {
+                        $scope.vm.errorMessages = [];
+                        $scope.vm.errorMessages.push({description: 'Access denied'});
+                    }
+                });
         }
 
 
@@ -70,28 +70,16 @@ angular.module('common', ['ngMessages', 'ngAnimate'])
         return {
             require: 'ngModel',
             link: function (scope, elm, attrs, ngModel) {
-                ngModel.$validators.checkMatches = function (viewValue) {
-                    switch (attrs.type){
-                        case 'password':
-                            if (scope.vm && scope.vm.password && viewValue) {
-                                return scope.vm.password === viewValue;
-                            }
-                            break;
-                        case 'email':
 
-                            var pwdToMatch = $parse(attrs.checkMatches);
-                            var pwdFn = $interpolate(attrs.checkMatches)(scope);
-                            scope.$watch(pwdFn, function(newVal) {
-                                ngModel.$setValidity('checkMatches', ngModel.$viewValue == newVal);
-                            });
+                var pwdToMatch = $parse(attrs.checkMatches);
+                var pwdFn = $interpolate(attrs.checkMatches)(scope);
+                scope.$watch(pwdFn, function (newVal) {
+                    ngModel.$setValidity('checkMatches', ngModel.$viewValue == newVal);
+                });
 
-                            ngModel.$validators.checkMatches = function(modelValue, viewValue) {
-                                var value = modelValue || viewValue;
-                                return value == pwdToMatch(scope);
-                            };
-
-                            break;
-                    }
+                ngModel.$validators.checkMatches = function (modelValue, viewValue) {
+                    var value = modelValue || viewValue;
+                    return value == pwdToMatch(scope);
                 };
             }
         };
