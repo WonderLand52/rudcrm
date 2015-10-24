@@ -10,7 +10,7 @@ require.config({
         csrfInterceptor: '../../../bower_components/spring-security-csrf-token-interceptor/dist/spring-security-csrf-token-interceptor.min',
         angularMessages: '../../../bower_components/angular-messages/angular-messages',
         angularAnimate: '../../../bower_components/angular-animate/angular-animate',
-        common: '../common',
+        common: '../../common/common',
         signInApp: 'signin-app'
     },
     shim: {

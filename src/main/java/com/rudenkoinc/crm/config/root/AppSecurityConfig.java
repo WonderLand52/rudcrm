@@ -62,7 +62,7 @@ public class AppSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                 .logout()
                 .logoutUrl("/logout")
-                .logoutSuccessUrl("/resources/public/index.html")
+                .logoutSuccessUrl("/resources/public/index/index.html")
                 .permitAll();
 
         if ("true".equals(System.getProperty("httpsOnly"))) {

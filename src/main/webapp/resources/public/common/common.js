@@ -19,18 +19,6 @@ angular.module('common', ['ngMessages', 'ngAnimate'])
             return $scope.tab.proceedClicked;
         };
 
-        $scope.$on('processUserDetailsExecuted', function () {
-            $scope.isValidForm();
-        });
-
-        $scope.isValidForm = function () {
-            console.log('isValidForm');
-            $scope.tab.validForm = $scope.form.firstname.$valid &&
-            $scope.form.secondname.$valid &&
-            $scope.form.email.$valid &&
-            $scope.form.retypeemail.$valid;
-        };
-
         $scope.preparePostData = function () {
             console.log('Password: ' + $scope.vm.loginPassword);
             console.log('Email: ' + $scope.vm.loginEmail);

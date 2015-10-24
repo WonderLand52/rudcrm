@@ -1,0 +1,100 @@
+<!--Register form-->
+<div class="personal-info col-md-6 col-md-offset-3" role="tabpanel" id="step1" ng-show="isTabSelected(1)" ng-controller="registerCtrl">
+    <form class="form-inline" role="form">
+        <div class="form-group row">
+            <label class="col-md-2 control-label" for="name">Name:</label>
+            <div class="col-md-5">
+                <!--firstname input-->
+                <input type="text" class="form-control" id="name" placeholder="First name" ng-model="vm.firstname"
+                       ng-focus="focus('firstname')"  ng-blur="blur('firstname')" name="firstname" required>
+
+                <!--firstname errors-->
+                <div class="error-messages" ng-show="register.isMessagesVisible()" ng-messages="form.firstname.$error"
+                     ng-cloak>
+                    <div ng-message="required">First name is mandatory</div>
+                </div>
+            </div>
+
+            <div class="col-md-5">
+                <!--secondname input-->
+                <input type="text" class="form-control" id="surname" placeholder="Second name" ng-model="vm.secondname"
+                       ng-focus="focus('secondname')"  ng-blur="blur('secondname')" name="secondname" required>
+
+                <!--secondname errors-->
+                <div class="error-messages" ng-show="register.isMessagesVisible()" ng-messages="form.secondname.$error"
+                     ng-cloak>
+                    <div ng-message="required">Second name is mandatory</div>
+                </div>
+            </div>
+
+        </div>
+        <div class="form-group row">
+            <label class="col-md-2 control-label" for="email">Email:</label>
+            <div class="col-md-10">
+                <input type="email" class="form-control" id="email" ng-model="vm.email"
+                       name="email" required>
+
+                <div class="error-messages" ng-show="register.isMessagesVisible()" ng-messages="form.email.$error"
+                     ng-cloak>
+                    <div ng-message="required">The email is mandatory</div>
+                    <div ng-message="email">must be a valid email</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="retype-email-label col-md-2 control-label" for="retype-email">Re-Type Email:</label>
+            <div class="col-md-10">
+                <input type="email" class="form-control" id="retype-email"
+                       ng-model="vm.retypeemail" name="retypeemail" required="" check-matches="vm.email">
+
+                <div class="error-messages" ng-show="register.isMessagesVisible()" ng-messages="form.retypeemail.$error"
+                     ng-cloak>
+                    <div ng-message="required">The email is mandatory</div>
+                    <div ng-message="checkMatches">emails must match</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-2 control-label" for="phone">Phone:</label>
+            <div class="col-md-10">
+                <input type="phone" class="form-control" id="phone" ng-model="vm.phone" placeholder="+38(099)4422876"
+                       ng-keyup="">
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-2 control-label" for="password">Password:</label>
+            <div class="col-md-10">
+                <input type="password" class="form-control" id="password" ng-model="vm.password" name="password" placeholder="Password"
+                       required ng-minlength="6" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}">
+
+                <div class="error-messages" ng-show="register.isMessagesVisible()" ng-messages="form.password.$error"
+                     ng-cloak>
+                    <div ng-message="required">The password is mandatory</div>
+                    <div ng-message="minlength">must have minimum 6 characters</div>
+                    <div ng-message="pattern">At least one number and uppercase</div>
+                </div>
+            </div>
+        </div>
+        <div class="form-group row">
+            <label class="col-md-2 control-label" for="retype-password">Re-Type Password:</label>
+            <div class="col-md-10">
+                <input type="password" class="form-control" id="retype-password" ng-model="vm.retypepassword" name="retypepassword" placeholder="Password"
+                       required ng-minlength="6" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}" check-matches="vm.password">
+
+                <div class="error-messages" ng-show="register.isMessagesVisible()" ng-messages="form.retypepassword.$error"
+                     ng-cloak>
+                    <div ng-message="required">The password is mandatory</div>
+                    <div ng-message="minlength">must have minimum 6 characters</div>
+                    <div ng-message="pattern">At least one number and uppercase</div>
+                    <div ng-message="checkMatches">Passwords must match</div>
+                </div>
+            </div>
+        </div>
+        <div class="checkbox pull-right">
+            <label><input type="checkbox"> Remember me</label>
+        </div>
+        <ul class="list-inline pull-right">
+            <li><button type="button" class="btn btn-default" ng-click="register.processUserDetails()">Proceed</button></li>
+        </ul>
+    </form>
+</div>

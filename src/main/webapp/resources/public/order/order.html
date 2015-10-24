@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Proceed Order</title>
+    <link href="/resources/bower_components/bootstrap-css/css/bootstrap.min.css" rel="stylesheet">
+    <link href="/resources/public/css/order/order.css" rel="stylesheet" media="screen">
+</head>
+<body>
+<div class="container" id="top">
+    <div class="row">
+        <section>
+            <div class="wizard" ng-controller="OrderProcessingCtrl">
+                <div class="wizard-inner">
+                    <div class="connecting-line"></div>
+                    <ul class="nav nav-tabs" role="tablist">
+
+                        <li role="presentation" ng-class="{active: isTabSelected(1)}" ng-click="selectTab(1)">
+                            <a href="#" aria-controls="step1" role="tab" title="Step 1">
+                            <span class="round-tab" title="Step 1">
+                                <i class="glyphicon glyphicon-folder-open"></i>
+                            </span>
+                            </a>
+                        </li>
+
+                        <li role="presentation" ng-class="{active: isTabSelected(2)}" ng-click="broadcastProcessUserDetails()">
+                            <a href="#" aria-controls="step2" role="tab" title="Step 2">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                            </span>
+                            </a>
+                        </li>
+                        <li role="presentation" ng-class="{active: isTabSelected(3)}" ng-click="processUserDetails(3)">
+                            <a href="#" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-picture"></i>
+                            </span>
+                            </a>
+                        </li>
+
+                        <li role="presentation" ng-class="{active: isTabSelected(4)}" ng-click="selectTab(4)">
+                            <a href="#complete" data-toggle="tab" aria-controls="complete" role="tab" title="Complete">
+                            <span class="round-tab">
+                                <i class="glyphicon glyphicon-ok"></i>
+                            </span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <form role="form" name="form" ng-controller="BaseFormCtrl">
+                    <div class="tab-content">
+
+                        <register-information></register-information>
+                        <details-information></details-information>
+
+                        <div class="tab-pane" role="tabpanel" id="step3">
+                            <h3>Step 3</h3>
+                            <p>This is step 3</p>
+                            <ul class="list-inline pull-right">
+                                <li><button type="button" class="btn btn-default prev-step">Previous</button></li>
+                                <li><button type="button" class="btn btn-default next-step">Skip</button></li>
+                                <li><button type="button" class="btn btn-primary btn-info-full next-step">Save and continue</button></li>
+                            </ul>
+                        </div>
+                        <div class="tab-pane" role="tabpanel" id="complete">
+                            <h3>Complete</h3>
+                            <p>You have successfully completed all steps.</p>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </form>
+            </div>
+        </section>
+    </div>
+</div>
+<script src="/resources/bower_components/jquery/dist/jquery.min.js"></script>
+<script src="/resources/bower_components/bootstrap-css/js/bootstrap.min.js"></script>
+<!--<script src="/resources/public/js/order/order.js"></script>-->
+
+<script type="text/javascript" data-main="/resources/public/order/run-order" src="/resources/bower_components/requirejs/require.js"></script>
+</body>
+</html>

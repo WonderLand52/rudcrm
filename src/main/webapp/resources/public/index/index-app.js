@@ -29,20 +29,21 @@ angular.module( 'indexApp', ['partialsManager'])
             }
         ];
 
-        $scope.subjects = ["Select...", "Accounting", "Anropology"];
+        $scope.defaultType = $scope.paperTypes[0];
+        $scope.subjects = ["Select...", "Accounting", "Anthropology"];
+        $scope.styles = ["MLA", "APA", "Chicago/Turabian", "Harvard", "Other"];
 
         $scope.calculatePrice = function() {
             if($scope.pagesNumber == undefined) {
                 $scope.calculatedPrice = '';
             }
             if($scope.defaultType.value != "Select type of Paper"
-                && $scope.levelSelect != undefined
-                && $scope.deadlineSelect != undefined
-                && typeof $scope.pagesNumber === 'number') {
+                && $scope.levelSelect
+                && $scope.deadlineSelect
+                && $scope.pagesNumber) {
                 $scope.calculatedPrice = $scope.pagesNumber * 10;
             }
         };
-
     })
     .controller("GetCalcDataCtrl", function () {
 

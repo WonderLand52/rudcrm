@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>FCKWENTRUM - the best papers and homeworks</title>
+    <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
+    <link href="/resources/bower_components/bootstrap-css/css/bootstrap.min.css" rel="stylesheet">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="/resources/public/css/lib/flexslider.css" rel="stylesheet">
+    <link href="/resources/public/css/index/styles.css" rel="stylesheet">
+    <link href="/resources/public/css/index/queries.css" rel="stylesheet">
+    <link href="/resources/public/css/lib/animate.css" rel="stylesheet">
+    <link href="/resources/bower_components/bootstrap-css/css/bootstrap-theme.min.css" rel="stylesheet" media="screen">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body id="top">
+<section class="hero" id="hero">
+    <tt-nav-bar></tt-nav-bar>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-center inner">
+                <h1 class="animated fadeInDown">FCK<span>WENTRUM</span></h1>
+
+                <p class="animated fadeInUp delay-05s">Get your academic paper from the professional writer</p>
+
+                <p><a href="/resources/public/order/order.html" class="learn-more-btn">Order now</a></p>
+            </div>
+            <div class="banner-right col-md-6" ng-controller="CalculatePriceCtrl">
+                <div class="jumbotron col-md-offset-1 animated fadeInUp delay-1s" id="calculate-price">
+                    <div class="container">
+                        <h2><strong>Calculate the price</strong></h2>
+
+                        <!--Select type of paper-->
+                        <form>
+                            <div class="form-group">
+                                <label for="type-of-paper">Type of paper:</label>
+                                <select class="form-control" id="type-of-paper"
+                                        ng-options="type.value group by type.group for type in paperTypes"
+                                        ng-model="defaultType" ng-change="calculatePrice()">
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="academic-level">Academic level:</label>
+                                <select class="form-control" id="academic-level" ng-model="levelSelect"
+                                        ng-change="calculatePrice()">
+                                    <option value="" selected>Select Academic level</option>
+                                    <option value="Undergraduate">Undergraduate</option>
+                                    <option value="Bachelor">Bachelor</option>
+                                    <option value="Professional">Professional</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="deadline">Deadline:</label>
+                                <select class="form-control" id="deadline" ng-model="deadlineSelect"
+                                        ng-change="calculatePrice()">
+                                    <option value="" selected>Select Deadline</option>
+                                    <option value="3">3 hours</option>
+                                    <option value="6">6 hours</option>
+                                    <option value="12">12 hours</option>
+                                    <option value="48">2 days</option>
+                                    <option value="72">3 days</option>
+                                </select>
+                            </div>
+                            <div class="form-group" ng-keydown="calculatePrice()" ng-keyup="calculatePrice()">
+                                <label for="pages-number">Number of pages:</label>
+                                <input ng-model="pagesNumber" type="number" maxlength="3" class="form-control"
+                                       id="pages-number">
+                            </div>
+                            <a href="/resources/public/order/order.html" class="proceed-btn">Proceed</a>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="center_price_row col-md-6 col-md-offset-1">
+                        Total price for this work:
+                    </div>
+                    <div class="center_price_div col-md-4 col-md-offset-1">
+                        $
+                            <span class="calc_price ng-cloak" ng-model="calculatedPrice"
+                                  ng-cloak>{{calculatedPrice}}</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="intro text-center section-padding" id="intro">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 wp1">
+                <h1 class="arrow">Who we are?</h1>
+
+                <p>FCKWENTRUM.com is an unique on-line academic assistance service, which allows customers and writers
+                    to work together towards a mutually satisfying <a href="#">final product</a>, by communicating
+                    directly in chat with no involvement of a third party or support team. The advantages are obvious:
+                    our customers can manage their orders independently, from the first stage to the last. Working in
+                    the field of academic assistance for a reasonably a long period has brought us to the understanding
+                    that nobody can manage orders as effectively as our customers themselves</p>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="features text-center section-padding" id="features">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="arrow">Our exclusive features</h1>
+
+                <div class="features-wrapper">
+                    <div class="col-md-4 wp2">
+                        <div class="icon">
+                            <i class="fa fa-laptop shadow"></i>
+                        </div>
+                        <h2>Free preview of your order</h2>
+
+                        <p>Ask for a preview of your order and get it immediately.</p>
+                    </div>
+                    <div class="col-md-4 wp2 delay-05s">
+                        <div class="icon">
+                            <i class="fa fa-code shadow"></i>
+                        </div>
+                        <h2>Live chat with your writer</h2>
+
+                        <p>Express all your expectations, ideas, and suggestions while the writer is working.</p>
+                    </div>
+                    <div class="col-md-4 wp2 delay-1s">
+                        <div class="icon">
+                            <i class="fa fa-heart shadow"></i>
+                        </div>
+                        <h2>Integrated plagiarism checker</h2>
+
+                        <p>Be sure to recieve a paper written from scratch before you pay.</p>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="swag text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                <div class="swag-bg">
+                    <h1>I got 99 Problems<span>but <em>homework</em> 'aint one</span></h1>
+                </div>
+                <a href="#portfolio" class="down-arrow-btn"><i class="fa fa-chevron-down"></i></a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="portfolio text-center section-padding" id="portfolio">
+    <div class="container">
+        <div class="row">
+            <div id="portfolioSlider">
+                <ul class="slides">
+                    <li>
+                        <div class="col-md-4 wp4">
+                            <div class="overlay-effect effects clearfix">
+                                <div class="img">
+                                    <img src="/resources/public/css/img/portfolio-02.jpg" alt="Portfolio Item">
+
+                                    <div class="overlay">
+                                        <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                                        <a class="close-overlay hidden">x</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <h2>Creative Minds</h2>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus
+                                pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                        </div>
+                        <div class="col-md-4 wp4 delay-05s">
+                            <div class="overlay-effect effects clearfix">
+                                <div class="img">
+                                    <img src="/resources/public/css/img/portfolio-02.jpg" alt="Portfolio Item">
+
+                                    <div class="overlay">
+                                        <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                                        <a class="close-overlay hidden">x</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <h2>Creative Hearts</h2>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus
+                                pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                        </div>
+                        <div class="col-md-4 wp4 delay-1s">
+                            <div class="overlay-effect effects clearfix">
+                                <div class="img">
+                                    <img src="/resources/public/css/img/portfolio-03.jpg" alt="Portfolio Item">
+
+                                    <div class="overlay">
+                                        <a href="#" class="expand"><i class="fa fa-search"></i><br>View More</a>
+                                        <a class="close-overlay hidden">x</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <h2>Creative Ideas</h2>
+
+                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non metus
+                                pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                        </div>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="team text-center section-padding" id="team">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="arrow">Testimonials</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="team-wrapper">
+                <div id="teamSlider">
+                    <ul class="slides">
+                        <li>
+                            <div class="col-md-4 wp5">
+                                <img src="/resources/public/css/img/team-01.png" alt="Team Member">
+
+                                <h2>Jon Snow</h2>
+
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non
+                                    metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                            </div>
+
+                            <div class="col-md-4 wp5 delay-05s">
+                                <img src="/resources/public/css/img/team-02.png" alt="Team Member">
+
+                                <h2>Cersei Lannister</h2>
+
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non
+                                    metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                            </div>
+                            <div class="col-md-4 wp5 delay-1s">
+                                <img src="/resources/public/css/img/team-03.png" alt="Team Member">
+
+                                <h2>Jamie Lannister</h2>
+
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc ultricies nulla non
+                                    metus pulvinar imperdiet. Praesent non adipiscing libero.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="subscribe text-center">
+    <div class="container">
+        <h1><i class="fa fa-paper-plane"></i><span>Subscribe to stay in the loop</span></h1>
+
+        <form action="#">
+            <input type="text" name="" value="" placeholder="" required>
+            <input type="submit" name="" value="Send">
+        </form>
+    </div>
+</section>
+<section class="dark-bg text-center section-padding contact-wrap" id="contact">
+    <a href="#top" class="up-btn"><i class="fa fa-chevron-up"></i></a>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="arrow">Drop us a line</h1>
+            </div>
+        </div>
+        <div class="row contact-details">
+            <div class="col-md-4">
+                <div class="light-box box-hover">
+                    <h2><i class="fa fa-map-marker"></i><span>Address</span></h2>
+
+                    <p>Level 6, 23 Pitt St, Sydney</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="light-box box-hover">
+                    <h2><i class="fa fa-mobile"></i><span>Phone</span></h2>
+
+                    <p>+61 9 211 3747</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="light-box box-hover">
+                    <h2><i class="fa fa-paper-plane"></i><span>Email</span></h2>
+
+                    <p><a href="#">hey@halcyondays.com</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <ul class="social-buttons">
+                    <li><a href="#" class="social-btn"><i class="fa fa-dribbble"></i></a></li>
+                    <li><a href="#" class="social-btn"><i class="fa fa-twitter"></i></a></li>
+                    <li><a href="#" class="social-btn"><i class="fa fa-envelope"></i></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<footer>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <ul class="legals">
+                    <li><a href="#">Terms &amp; Conditions</a></li>
+                    <li><a href="#">Legals</a></li>
+                </ul>
+            </div>
+            <div class="col-md-6 credit">
+                <p>Designed &amp; Developed by <a href="http://www.peterfinlan.com/">Peter Finlan</a> exclusively for <a
+                        href="http://tympanus.net/codrops/"><em>Codrops</em></a></p>
+            </div>
+        </div>
+    </div>
+</footer>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="/resources/bower_components/jquery/dist/jquery.min.js"></script>
+<!--Include all compiled plugins (below), or include individual files as needed -->
+<script src="/resources/public/js/lib/waypoints.min.js"></script>
+<script src="/resources/bower_components/bootstrap-css/js/bootstrap.min.js"></script>
+<script src="/resources/public/js/scripts.js"></script>
+<script src="/resources/public/js/lib/jquery.flexslider.js"></script>
+<script src="/resources/public/js/lib/modernizr.js"></script>
+<script type="text/javascript" data-main="/resources/public/index/run-index"
+        src="/resources/bower_components/requirejs/require.js"></script>
+</body>
+</html>
