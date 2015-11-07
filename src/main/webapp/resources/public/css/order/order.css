@@ -138,7 +138,7 @@ span.round-tab:hover {
     }
 }
 
-.personal-info {
+.custom-form {
     margin-top: 40px;
 }
 
@@ -148,19 +148,27 @@ span.round-tab:hover {
 .control-label {
     text-align: right;
 }
-.personal-info .form-group {
+.custom-form .form-group {
     margin-bottom: 20px;
 }
 
-.personal-info .form-group .control-label {
+.custom-form .form-group .control-label {
     margin-bottom: 0;
+}
+
+.custom-form .col-md-3 {
+    margin-right: -15px;
+}
+
+.deadline .btn-default {
+    padding: 5px 10px;
 }
 
 .error-messages.ng-active {
     background: #f2dede;
     border: 1px solid #eed3d7;
     color: #b94a48;
-    border-radius: 2px;
+    border-radius: 4px;
     padding: 3px 5px;
     margin-top: 5px;
     margin-bottom: 0;

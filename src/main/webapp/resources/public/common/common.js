@@ -58,7 +58,6 @@ angular.module('common', ['ngMessages', 'ngAnimate'])
         return {
             require: 'ngModel',
             link: function (scope, elm, attrs, ngModel) {
-
                 var pwdToMatch = $parse(attrs.checkMatches);
                 var pwdFn = $interpolate(attrs.checkMatches)(scope);
                 scope.$watch(pwdFn, function (newVal) {

@@ -1,12 +1,11 @@
 <!--Order details form-->
-<!--role="tabpanel" id="step2"-->
-<div class="personal-info col-md-6 col-md-offset-2"  ng-show="isTabSelected(2)" ng-controller="CalculatePriceCtrl">
+<div class="custom-form col-md-6 col-md-offset-2"  ng-show="isTabSelected(2)" ng-controller="CalculatePriceCtrl">
     <form role="form">
         <div class="form-group row">
             <label class="col-md-4 control-label" for="type_of_paper">Paper type:</label>
             <div class="col-md-8">
                 <select class="form-control" id="type_of_paper" name="typeOfPaper"
-                        ng-options="type.value group by type.group for type in paperTypes" ng-model="paperTypes[0]">
+                        ng-options="type.value group by type.group for type in paperTypes" ng-model="defaultType">
                 </select>
 
                 <div class="error-messages" ng-show="details.isMessagesVisible()" ng-messages="form.typeOfPaper.$error"

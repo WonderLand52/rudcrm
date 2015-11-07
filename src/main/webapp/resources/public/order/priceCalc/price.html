@@ -1,58 +1,35 @@
-<!--Register form-->
-<div class="custom-form col-md-6 col-md-offset-3" role="tabpanel" id="step1" ng-show="isTabSelected(1)" ng-controller="registerCtrl">
-    <form class="form-inline" role="form" ng-controller="helloCtrl">
-        <!--First and Second name-->
+<!--Price Calculation form-->
+<div class="custom-form col-md-6 col-md-offset-3" role="tabpanel" id="step1" ng-show="isTabSelected(3)">
+    <form class="form-inline" role="form">
         <div class="form-group row">
-            <label class="col-md-2 control-label" for="name">Name:</label>
-            <div class="col-md-5">
-                <input type="text" class="form-control" id="name" placeholder="First name" ng-model="vm.firstname"
-                       ng-focus="focus('firstname')"  ng-blur="blur('firstname')" name="firstname" required>
-
-                <div class="error-messages" ng-show="register.isMessagesVisible()" ng-messages="form.firstname.$error"
-                     ng-cloak>
-                    <div ng-message="required">First name is mandatory</div>
-                </div>
-            </div>
-
-            <div class="col-md-5">
-                <input type="text" class="form-control" id="surname" placeholder="Second name" ng-model="vm.secondname"
-                       ng-focus="focus('secondname')"  ng-blur="blur('secondname')" name="secondname" required>
-
-                <div class="error-messages" ng-show="register.isMessagesVisible()" ng-messages="form.secondname.$error"
-                     ng-cloak>
-                    <div ng-message="required">Second name is mandatory</div>
-                </div>
+            <label class="col-md-3 control-label" for="type_of_service">Type of service:</label>
+            <div class="col-md-9">
+                <select class="form-control" id="type_of_service" name="typeOfService"
+                        ng-options="style for style in typesOfService" ng-model="styles[0]">
+                    <option value="1" selected="selected">Writing from scratch</option>
+                    <option value="2">Editing/proofreading</option>
+                </select>
             </div>
         </div>
-        <!--Email-->
         <div class="form-group row">
-            <label class="col-md-2 control-label" for="email">Email:</label>
-            <div class="col-md-10">
-                <input type="email" class="form-control" id="email" ng-model="vm.email"
-                       name="email" required>
-
-                <div class="error-messages" ng-show="register.isMessagesVisible()" ng-messages="form.email.$error"
-                     ng-cloak>
-                    <div ng-message="email">must be a valid email</div>
-                    <div ng-message="required">The email is mandatory</div>
-                </div>
+            <label class="col-md-3 control-label">Deadline:</label>
+            <div class="col-md-9">
+                <deadline-buttons template="{{price.buttonsTemplate}}"></deadline-buttons>
             </div>
         </div>
-        <!--Retype Email-->
         <div class="form-group row">
             <label class="retype-email-label col-md-2 control-label" for="retype-email">Re-Type Email:</label>
             <div class="col-md-10">
                 <input type="email" class="form-control" id="retype-email"
-                       ng-model="vm.retypeemail" name="retypeemail" required check-matches="vm.email">
+                       ng-model="vm.retypeemail" name="retypeemail" required="" check-matches="vm.email">
 
                 <div class="error-messages" ng-show="register.isMessagesVisible()" ng-messages="form.retypeemail.$error"
                      ng-cloak>
-                    <div ng-message="checkMatches">emails must match</div>
                     <div ng-message="required">The email is mandatory</div>
+                    <div ng-message="checkMatches">emails must match</div>
                 </div>
             </div>
         </div>
-        <!--Phone-->
         <div class="form-group row">
             <label class="col-md-2 control-label" for="phone">Phone:</label>
             <div class="col-md-10">
@@ -60,7 +37,6 @@
                        ng-keyup="">
             </div>
         </div>
-        <!--Password-->
         <div class="form-group row">
             <label class="col-md-2 control-label" for="password">Password:</label>
             <div class="col-md-10">
@@ -75,7 +51,6 @@
                 </div>
             </div>
         </div>
-        <!--Retype Password-->
         <div class="form-group row">
             <label class="col-md-2 control-label" for="retype-password">Re-Type Password:</label>
             <div class="col-md-10">
@@ -91,7 +66,6 @@
                 </div>
             </div>
         </div>
-        <!--Buttons-->
         <div class="checkbox pull-right">
             <label><input type="checkbox"> Remember me</label>
         </div>

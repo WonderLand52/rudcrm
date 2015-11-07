@@ -40,7 +40,7 @@ public class UserController {
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(method = RequestMethod.POST)
     public void createUser(@RequestBody NewUserDTO user) {
-        userService.createUser(user.getFirstName(), user.getSecondName(), user.getEmail(), user.getPlainTextPassword());
+        userService.createUser(user);
     }
 
 

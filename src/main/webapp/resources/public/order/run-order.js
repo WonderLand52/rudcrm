@@ -9,18 +9,14 @@ require.config({
         indexApp: '../index/index-app',
         registerView: 'register/register-view',
         orderDetailsView: 'orderDetails/order-details-view',
+        priceCalcView: 'priceCalc/price-calc-view',
+        priceCalcTemplates: 'priceCalc/templates',
         makeOrderApp: 'order-app'
     },
     shim: {
         angular: {
             exports: "angular"
         },
-        //csrfInterceptor: {
-        //    deps: ['angular']
-        //},
-        //angularMessages: {
-        //    deps: ['angular']
-        //},
         angularAnimate: {
             deps: ['angular']
         },
@@ -30,8 +26,11 @@ require.config({
         indexApp: {
             deps: ['angular', 'partialsManager']
         },
+        priceCalcView: {
+            deps: ['priceCalcTemplates']
+        },
         makeOrderApp: {
-            deps: ['registerView', 'orderDetailsView', 'common', 'indexApp', 'csrfInterceptor', 'angularAnimate']
+            deps: ['registerView', 'orderDetailsView', 'priceCalcView', 'common', 'indexApp', 'csrfInterceptor', 'angularAnimate']
         }
     }
 });

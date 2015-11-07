@@ -23,14 +23,14 @@
                             </a>
                         </li>
 
-                        <li role="presentation" ng-class="{active: isTabSelected(2)}" ng-click="broadcastProcessUserDetails()">
+                        <li role="presentation" ng-class="{active: isTabSelected(2)}" ng-click="selectTab(2); broadcastProcessUserDetails()">
                             <a href="#" aria-controls="step2" role="tab" title="Step 2">
                             <span class="round-tab">
                                 <i class="glyphicon glyphicon-pencil"></i>
                             </span>
                             </a>
                         </li>
-                        <li role="presentation" ng-class="{active: isTabSelected(3)}" ng-click="processUserDetails(3)">
+                        <li role="presentation" ng-class="{active: isTabSelected(3)}" ng-click="selectTab(3); processUserDetails(3)">
                             <a href="#" data-toggle="tab" aria-controls="step3" role="tab" title="Step 3">
                             <span class="round-tab">
                                 <i class="glyphicon glyphicon-picture"></i>
@@ -53,6 +53,7 @@
 
                         <register-information></register-information>
                         <details-information></details-information>
+                        <price-calc-information></price-calc-information>
 
                         <div class="tab-pane" role="tabpanel" id="step3">
                             <h3>Step 3</h3>

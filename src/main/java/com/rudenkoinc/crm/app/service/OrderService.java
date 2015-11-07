@@ -55,8 +55,8 @@ public class OrderService {
             order.setSubject(subject);
             order.setStyle(style);
             order.setOrderInstructions(orderInstructions);
-            order.setOrderInstructions(orderInstructions);
             order.setSources(sources);
+            orderRepository.save(order);
         } else {
             User client =  userRepository.findUserByEmail(email);
 
