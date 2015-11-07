@@ -9,4 +9,6 @@ out
 gen
 bower_components
 target
+target/
+bower_components
 
