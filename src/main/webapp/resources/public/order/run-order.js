@@ -20,6 +20,24 @@ require.config({
         angularAnimate: {
             deps: ['angular']
         },
+        csrfInterceptor: {
+            deps: ['angular']
+        },
+        angularMessages: {
+            deps: ['angular']
+        },
+        partialsManager: {
+            deps: ['angular']
+        },
+        registerView: {
+            deps: ['angular']
+        },
+        orderDetailsView: {
+            deps: ['angular']
+        },
+        priceCalcTemplates: {
+            deps: ['angular']
+        },
         common: {
             deps: ['angular', 'csrfInterceptor', 'angularMessages', 'angularAnimate']
         },
@@ -27,10 +45,10 @@ require.config({
             deps: ['angular', 'partialsManager']
         },
         priceCalcView: {
-            deps: ['priceCalcTemplates']
+            deps: ['angular', 'priceCalcTemplates']
         },
         makeOrderApp: {
-            deps: ['registerView', 'orderDetailsView', 'priceCalcView', 'common', 'indexApp', 'csrfInterceptor', 'angularAnimate']
+            deps: ['angular', 'registerView', 'orderDetailsView', 'priceCalcView', 'common', 'indexApp', 'csrfInterceptor', 'angularAnimate']
         }
     }
 });

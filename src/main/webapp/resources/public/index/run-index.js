@@ -14,15 +14,15 @@ require.config({
         csrfInterceptor: {
             deps: ['angular']
         },
-        indexApp: {
-            deps: ['angular', 'partialsManager']
+        partialsManager: {
+            deps: ['angular']
         },
-        bootstrap: {
-            deps: ['jQuery']
+        indexApp: {
+            deps: ['partialsManager']
         }
     }
 });
 
-require(['partialsManager', 'index-app', 'angular'], function () {
+require(['angular', 'partialsManager', 'indexApp'], function () {
     angular.bootstrap(document.getElementById('top'), ['indexApp']);
 });
