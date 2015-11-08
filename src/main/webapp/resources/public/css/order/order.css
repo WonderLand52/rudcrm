@@ -138,7 +138,7 @@ span.round-tab:hover {
     }
 }
 
-.custom-form {
+.price-calc-form {
     margin-top: 40px;
 }
 
@@ -148,15 +148,15 @@ span.round-tab:hover {
 .control-label {
     text-align: right;
 }
-.custom-form .form-group {
+.price-calc-form .form-group {
     margin-bottom: 20px;
 }
 
-.custom-form .form-group .control-label {
+.price-calc-form .form-group .control-label {
     margin-bottom: 0;
 }
 
-.custom-form .col-md-3 {
+.price-calc-form .col-md-4 {
     margin-right: -15px;
 }
 
@@ -164,6 +164,15 @@ span.round-tab:hover {
     padding: 5px 10px;
 }
 
+.btn.btn-default.number-input {
+    background-color:#fff;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
 .error-messages.ng-active {
     background: #f2dede;
     border: 1px solid #eed3d7;

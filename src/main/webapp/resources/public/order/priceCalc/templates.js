@@ -45,9 +45,36 @@ angular.module('priceCalc.templates', [])
     })
     .factory('deadLineButtonsTplService', function() {
         return function() {
-            return '<div class="deadline" class="btn-group" role="group">' +
+            return '<div class="btn-group" role="group">' +
+                '<button type="button" class="btn btn-default btn-deadline" ' +
+                'ng-repeat="button in price.deadLineButtons" ng-click="price.setDeadline(button.value)">{{button.name}}</button>' +
+                '</div>'
+        }
+    })
+    .factory('academicLevelButtonsDataService', function () {
+        return function() {
+            //TODO: go to server here
+            return [
+                {
+                    value: "undergraduate",
+                    name: "Undergraduate"
+                },
+                {
+                    value: "bachelor",
+                    name: "Bachelor"
+                },
+                {
+                    value: "professional",
+                    name: "Professional"
+                }
+            ]
+        }
+    })
+    .factory('academicLevelButtonsTplService', function () {
+        return function() {
+            return '<div class="btn-group" role="group">' +
                 '<button type="button" class="btn btn-default" ' +
-                'ng-repeat="button in price.buttons" ng-click="price.setDeadline(button.value)">{{button.name}}</button>' +
+                'ng-repeat="button in price.academicLevelButtons" ng-click="price.setAcademicLevel(button.value)">{{button.name}}</button>' +
                 '</div>'
         }
     });
